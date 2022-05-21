@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Alexandra-Andreea/MyCalendar2#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "node-sass-middleware": "^1.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
