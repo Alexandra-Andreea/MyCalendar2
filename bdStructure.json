@@ -1,0 +1,93 @@
+// -------------------- USERS COLLECTION -------------------
+{
+    "Users": [
+        {
+            "Username": "string",
+            "Email": "string",
+            "Password": "string",
+            "FirstName": "string",
+            "LastName": "string",
+            "Birthday": "date",
+            "DarkTheme": "boolean",
+            "Feedback": "number",
+            "Milestones": [
+                {
+                    "Name": "string",
+                    "Description": "string",
+                    "Data": "date",
+                    "Location": "string",
+                    "Completed": "boolean"
+                }
+            ],
+            "Tasks": [
+                {
+                    "Name": "string",
+                    "Description": "string",
+                    "StartDate": "date",
+                    "EndDate": "date",
+                    "Hour": "date",
+                    "Notification": "boolean",
+                    "Completed": "boolean",
+                    "Substasks": [
+                        {
+                            "Name": "string",
+                            "Description": "string",
+                            "StartDate": "date",
+                            "EndDate": "date",
+                            "Hour": "date",
+                            "Notification": "boolean",
+                            "Completed": "boolean"
+                        }
+                    ]
+                }
+            ],
+            "Notes": [
+                {
+                    "Name": "string",
+                    "Description": "string"
+                }
+            ],
+            "Calendars": [
+                {
+                    "IdCalendar": "number",
+                    "EditingRights": "boolean"
+                }
+            ]
+        }
+    ]
+};
+
+// -------------------- CALENDARS COLLECTION -------------------
+{
+    "Calendars": [
+        {
+            "IdCalendar": "number",
+            "NameCalendar": "string",
+            "Events": [
+                {
+                    "Name": "string",
+                    "Description": "string",
+                    "AllDayEvent": "boolean",
+                    "StartDate": "date",
+                    "EndDate": "date",
+                    "Hour": "date",
+                    "Location": "string",
+                    "Repeat": {
+                        "InfiniteEvent": "boolean",
+                        "Type": [
+                            "none",
+                            "day",
+                            "week",
+                            "month",
+                            "year"
+                        ],
+                        "NumberOfRepeats": "number",
+                        "FinishDate": "date"
+                    },
+                    "Color": "number",
+                    "Notification": "boolean"
+                }
+            ]
+        }
+    ]
+}

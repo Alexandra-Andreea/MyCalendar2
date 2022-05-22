@@ -2,10 +2,6 @@ import React from "react";
 import loginImage from '../../layer/login.svg';
 
 export class Login extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return <div className="base-container" ref={this.props.containerRef}>
             <div className="header">
@@ -14,7 +10,7 @@ export class Login extends React.Component {
 
             <div className="content">
                 <div className="image">
-                    <img src={loginImage} />
+                    <img src={loginImage} alt="myImage" />
                 </div>
 
                 <div className="form">
