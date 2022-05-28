@@ -1,8 +1,10 @@
 import express from 'express';
 import config from './config';
 import data from './data';
+import connectDB from './backend/config/database';
 
 const server = express();
+connectDB();
 
 
 server.get('/', (req, res) => {
