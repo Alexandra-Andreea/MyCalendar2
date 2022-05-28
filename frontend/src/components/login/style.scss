@@ -10,7 +10,7 @@
         font-size: 24px;
         font-family: "Open Sans", sans-serif;
         padding-top: 5px;
-        padding-bottom: 2em;
+        padding-bottom: 1em;
     }
 
     .content {
@@ -52,7 +52,7 @@
                     background-color: #f3f3f3;
                     border: 0;
                     border-radius: 4px;
-                    margin-bottom: 23px;
+                    margin-bottom: 20px;
                     transition: all 250ms ease-in-out;
 
                     &:focus {
@@ -62,9 +62,5 @@
                 }
             }
         }
-    }
-
-    .footer {
-        margin-top: 3em;
     }
 }

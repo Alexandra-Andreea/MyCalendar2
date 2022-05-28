@@ -1,40 +1,110 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import loginImage from '../../layer/login.svg';
 
-export class Register extends React.Component {
-    render() {
-        return <div className="base-container">
-            <div className="header">
-                Register
-            </div>
+const Register = () => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
-            <div className="content">
-                <div className="image">
-                    <img src={loginImage} alt="myImage" />
-                </div>
+    const [showErrorMessage, setShowErrorMessage] = useState(false);
+    const [confirmPasswordClass, setconfirmPasswordClass] = useState('form-control');
+    const [isPasswordDirty, setisPasswordDirty] = useState(false);
 
-                <div className="form">
-                    <div className="form-group">
-                        <label htmlFor="username">Username</label>
-                        <input type="text" name="username" placeholder="username" required />
-                    </div>
+    function submitRegister() {
+        console.log(`${showErrorMessage}`);
 
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" placeholder="email" required />
-                    </div>
 
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" name="password" placeholder="password" required />
-                    </div>
-                </div>
-            </div>
-
-            <div className="footer">
-                <button type="button" className="btn">Register</button>
-            </div>
-
-        </div>
     }
+
+    useEffect(() => {
+        if (isPasswordDirty) {
+            if (password === confirmPassword) {
+                setShowErrorMessage(false);
+                setconfirmPasswordClass('form-control is-valid')
+            } else {
+                setShowErrorMessage(true)
+                setconfirmPasswordClass('form-control is-invalid')
+            }
+        }
+    }, [confirmPassword])
+
+    const handleCPassword = (e) => {
+        setConfirmPassword(e.target.value);
+        setisPasswordDirty(true);
+    }
+
+    return <div className="base-container">
+        <div className="header">
+            Register
+        </div>
+
+        <form className="content">
+            <div className="image">
+                <img src={loginImage} alt="myImage" />
+            </div>
+
+            <div className="form">
+                <div className="form-group">
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="username"
+                        required
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="email"
+                        required
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="password"
+                        required
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="confirm_password"> Confirm Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="password"
+                        required
+                        onChange={handleCPassword}
+                        className={confirmPasswordClass}
+                    />
+                </div>
+            </div>
+        </form>
+
+        {showErrorMessage && isPasswordDirty ? <div> Passwords did not match </div> : ''}
+
+        <div className="footer">
+            <button
+                type="button"
+                className="btn"
+                onClick={submitRegister}
+            >
+                Register
+            </button>
+        </div>
+
+    </div>
 }
+
+export default Register;

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Main.scss";
-import { Login, Register } from "./index";
+import Register from "./Register";
+import Login from "./Login";
+import './style.scss';
 
 class Main extends React.Component {
     constructor(props) {
