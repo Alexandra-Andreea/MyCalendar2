@@ -1,9 +1,43 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import loginImage from '../../layer/login.svg';
+import axios from "axios";
 
 const Login = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const history = useHistory();
+
+    const submitLogin = async () => {
+        if (!username || !password) {
+            alert('Please fill all the fields!');
+            return;
+        }
+
+        console.log(`${username} ${password}`);
+
+        try {
+            const config = {
+                headers: {
+                    "Content-type": "application/json",
+                },
+            };
+
+            const { data } = await axios.post(
+                "/api/user/login",
+                { username, password },
+                config
+            );
+
+            console.log(JSON.stringify(data));
+
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            history.push('/home');
+
+        } catch (error) {
+            alert('Error occured!');
+        };
+    }
 
     return <div className="base-container" ref={props.containerRef}>
         <div className="header">
@@ -41,7 +75,12 @@ const Login = (props) => {
         </div>
 
         <div className="footer">
-            <button type="button" className="btn">Login</button>
+            <button
+                type="button"
+                className="btn"
+                onClick={submitLogin}>
+                Login
+            </button>
         </div>
 
     </div>

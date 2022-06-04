@@ -1,18 +1,50 @@
 import React, { useState, useEffect } from "react";
 import loginImage from '../../layer/login.svg';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-
     const [showErrorMessage, setShowErrorMessage] = useState(false);
     const [confirmPasswordClass, setconfirmPasswordClass] = useState('form-control');
     const [isPasswordDirty, setisPasswordDirty] = useState(false);
+    const history = useHistory();
 
-    function submitRegister() {
-        console.log(`${showErrorMessage}`);
+    const submitRegister = async () => {
+        if (!username || !email || !password || !confirmPassword) {
+            alert('Please fill all the fields!');
+            return;
+        }
+
+        if (showErrorMessage) {
+            return;
+        }
+
+        console.log(`${username} ${email} ${password}`);
+
+        try {
+            const config = {
+                headers: {
+                    "Content-type": "application/json",
+                },
+            };
+
+            const { data } = await axios.post(
+                "/api/user/register",
+                { username, email, password },
+                config
+            );
+
+            console.log(JSON.stringify(data));
+
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            history.push('/home');
+        } catch (error) {
+            alert('User already exists! Please Login!');
+        };
 
 
     }
@@ -29,7 +61,7 @@ const Register = () => {
         }
     }, [confirmPassword])
 
-    const handleCPassword = (e) => {
+    const handleConfirmPassword = (e) => {
         setConfirmPassword(e.target.value);
         setisPasswordDirty(true);
     }
@@ -41,7 +73,10 @@ const Register = () => {
 
         <form className="content">
             <div className="image">
-                <img src={loginImage} alt="myImage" />
+                <img
+                    src={loginImage}
+                    alt="myImage"
+                />
             </div>
 
             <div className="form">
@@ -85,7 +120,7 @@ const Register = () => {
                         name="password"
                         placeholder="password"
                         required
-                        onChange={handleCPassword}
+                        onChange={handleConfirmPassword}
                         className={confirmPasswordClass}
                     />
                 </div>
@@ -98,8 +133,7 @@ const Register = () => {
             <button
                 type="button"
                 className="btn"
-                onClick={submitRegister}
-            >
+                onClick={submitRegister} >
                 Register
             </button>
         </div>

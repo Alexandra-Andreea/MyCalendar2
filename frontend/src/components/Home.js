@@ -1,26 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import React from "react";
 
 const Home = () => {
-    const [datas, setData] = useState([]);
-
-    const fetchData = async () => {
-        const { data } = await axios.get('/api/data');
-
-        setData(data);
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
     return (
         <div>
-            {datas.map((data) => (
-                <div key={data._id}>
-                    {data.chatName}
-                </div>
-            ))}
+            HOME PAGE
         </div>
     )
 };

@@ -1,8 +1,8 @@
 import express from 'express';
 import config from './config';
 import connectDB from './backend/config/database';
-import { append } from 'express/lib/response';
 import userRoutes from './backend/routes/userRoutes';
+import { notFound, errorHandler } from './backend/middlewares/errorMiddleware';
 
 const server = express();
 connectDB();
@@ -16,6 +16,9 @@ server.get('/', (req, res) => {
 });
 
 server.use('/api/user', userRoutes);
+
+server.use(notFound);
+server.use(errorHandler);
 
 server.listen(config.port, () => {
     console.info('Express listening on port', config.port);
