@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/homePage/Main';
 import Main from './components/login/Main';
 
 function App() {
