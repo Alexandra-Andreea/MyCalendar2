@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import $ from 'jquery';
+import React from "react";
 import '@fortawesome/fontawesome-free/js/all.js';
-import './DashboardStyle.scss';
+import './NavbarStyle.scss';
 
 const Navbar = () => {
 
