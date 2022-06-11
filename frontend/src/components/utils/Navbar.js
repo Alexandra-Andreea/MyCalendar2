@@ -4,7 +4,7 @@ import './NavbarStyle.scss';
 
 const Navbar = () => {
 
-    return <>
+    return <div id="navbar-style">
         <nav className="navbar navbar-expand-custom navbar-mainbg">
             <a className="navbar-brand navbar-logo" href="/home">myCalendar</a>
             <button className="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +35,7 @@ const Navbar = () => {
                 </ul>
             </div>
         </nav>
-    </>
+    </div>
 };
 
 export default Navbar;
