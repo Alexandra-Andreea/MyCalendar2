@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import './ProfileStyle.scss';
 
 const ProfileSettings = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
+
+    const fetchRegisterData = async (userId) => {
+
+
+
+    }
+
+    useEffect(() => {
+        fetchRegisterData();
+    }, []);
 
     return <div id="profile-settings-style">
         <div className="container rounded bg-white mt-5 mb-5">
