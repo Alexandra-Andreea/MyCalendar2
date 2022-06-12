@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import './FooterStyle.scss';
 
 const Footer = () => {
+
     return <span id="footer-style">
         <footer className="site-footer">
             <div className="container">

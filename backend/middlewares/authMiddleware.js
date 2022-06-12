@@ -6,15 +6,19 @@ import config from "../../config";
 const protect = asyncHandler(async (req, res, next) => {
     let token;
 
-    if (req.headers.authorization &&
-        req.headers.authorization.startsWith("Bearer")) {
+    if (
+        req.headers.authorization &&
+        req.headers.authorization.startsWith("Bearer")
+    ) {
         try {
-            token.headers.authorization.split(" ")[1];
+            token = req.headers.authorization.split(" ")[1];
 
-            //decode token id
-            const decoded = jwd.verify(token, config.jwtSecret);
+            //decodes token id
+            const decoded = jwt.verify(token, config.jwtSecret);
 
-            req.user = await User.findById(decoded.id).select("-password");
+            const user = await User.findById(decoded.id).select("-password");
+
+            req.userId = user._id;
 
             next();
         } catch (error) {
@@ -27,6 +31,6 @@ const protect = asyncHandler(async (req, res, next) => {
         res.status(401);
         throw new Error("Not authorized, no token");
     }
-})
+});
 
 module.exports = { protect };

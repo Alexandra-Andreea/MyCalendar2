@@ -1,13 +1,14 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcryptjs';
+import moment from 'moment'
 
 const userSchema = mongoose.Schema({
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    firstName: { type: String },
-    lastName: { type: String },
-    birthday: { type: Date },
+    firstName: { type: String, required: true, default: 'first name' },
+    lastName: { type: String, required: true, default: 'last name' },
+    birthday: { type: Date, required: true, default: (Date.now) },
     darkTheme: { type: Boolean },
     feedback: { type: Number, required: true, default: 0 },
     calendars: [{
