@@ -16,7 +16,7 @@ const updateProfileData = asyncHandler(async (req, res) => {
     try {
         const { firstName, lastName, birthday } = req.body;
         const userId = req.body._id;
-        console.log(req.body);
+
         const updateUser = await User.findByIdAndUpdate(
             userId,
             {
