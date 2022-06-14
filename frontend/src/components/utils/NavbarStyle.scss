@@ -98,9 +98,31 @@
         vertical-align: top;
         line-height: 1.3;
         margin-top: 5px;
+
+        
     }
 
     .nav-item {
         margin-left: 20px;
+    }
+
+    .btn {
+        font-size: 21px;
+        padding: 5px 20px;
+        margin-top: 10px;
+        border: 0;
+        background-color: #c65ad6;
+        color: #fff;
+        border-radius: 3px;
+        transition: all 250ms ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ac2abf;
+        }
+
+        &:focus {
+            outline: none;
+        }
     }
 }

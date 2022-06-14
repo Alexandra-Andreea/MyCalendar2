@@ -29,8 +29,6 @@ const updateProfileData = asyncHandler(async (req, res) => {
             }
         );
 
-
-
         if (!updateUser) {
             res.status(404);
             throw new Error("User not found");

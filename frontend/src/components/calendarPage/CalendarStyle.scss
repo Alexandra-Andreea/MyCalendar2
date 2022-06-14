@@ -1,0 +1,212 @@
+#month-syle {
+    display: grid;
+    justify-items: center;
+    margin-top: 1%;
+    grid-template-rows: repeat(5, 200px);
+    grid-row-gap: 1px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: 1px;
+    flex-direction: column;
+}
+
+#day-style {
+    border-radius: 20px;
+
+    &:hover {
+        background-color: #e6bae5
+    }
+
+    .day-item {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .header-style {
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+    }
+
+    .day-name {
+        font-size: 0.875rem;
+        margin-top: 5px;
+    }
+
+    .current-day-style {
+        background-color: #ac2abf;
+        color: white;
+        border-radius: 100%;
+    }
+
+    .calendar-header-style{
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+    }
+}
+
+#calendar-header-style {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+
+    .today-button {
+        margin-right: 2%;
+        
+        &:hover {
+            background-color: #0255d1
+        }
+    }
+
+    .left-arrow {
+        margin-right: 1%;
+        font-size: 21px;
+        padding: 5px 20px;
+        margin-top: 10px;
+        border: 0;
+        background-color: #c65ad6;
+        color: #fff;
+        border-radius: 3px;
+        transition: all 250ms ease-in-out;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: #ac2abf;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .right-arrow {
+        font-size: 21px;
+        padding: 5px 20px;
+        margin-top: 10px;
+        border: 0;
+        background-color: #c65ad6;
+        color: #fff;
+        border-radius: 3px;
+        transition: all 250ms ease-in-out;
+        cursor: pointer;
+    
+        &:hover {
+            background-color: #ac2abf;
+        }
+    
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .display-month-style {
+        margin-left: 1rem;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+        color: rgb(107, 114, 128);
+        font-weight: 700;
+        margin-top: 15px;
+    }
+
+    .create-event-button {
+        padding: 0.5rem;
+        display: flex;
+        margin-left: 50%;
+
+        &:hover {
+            background-color: #0255d1;
+        }
+    }
+
+    .icon {
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+}
+
+.create-event-modal {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    margin-left: 130%;
+    justify-content: center;
+    align-items: center;
+    top: 120px;
+
+    .form-create-event {
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        width: 25%;
+    }
+
+    .header-create-event{
+        background-color: rgb(243, 244, 246);
+        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.create-event-body {
+    padding: 0.3rem;
+
+    .grid-body {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        align-items: flex-end;
+        row-gap: 1rem;
+    }
+
+    .title-input {
+        padding-top: 0.75rem;
+        border-width: 0px;
+        color: rgb(75, 85, 99);
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        border-bottom-width: 2px;
+        border-color: rgb(229, 231, 235);
+
+        &:focus {
+            outline-width: 0px;
+            border-color: rgb(59, 130, 246);
+        }
+    }
+
+    .label-style {
+        text-align: left;
+    }
+
+    .btn {
+        font-size: 21px;
+        padding: 5px 20px;
+        margin-top: 10px;
+        border: 0;
+        background-color: #c65ad6;
+        color: #fff;
+        border-radius: 3px;
+        transition: all 250ms ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #ac2abf;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}
