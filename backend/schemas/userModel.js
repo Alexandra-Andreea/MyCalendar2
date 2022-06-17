@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
     events: [{
         nameEvent: { type: String, required: true },
         descriptionEvent: { type: String },
-        allDayEvent: { type: Boolean, default: false },
         startDateEvent: { type: Date, default: Date.now },
         endDateEvent: { type: Date, default: Date.now },
         startHourEvent: { type: Date, default: Date.now },
