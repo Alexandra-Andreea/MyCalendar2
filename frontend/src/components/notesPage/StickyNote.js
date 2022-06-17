@@ -7,15 +7,6 @@ const StickyNote = () => {
     const [note, setNote] = useState('This is a sticky note you can type and edit.');
     const [title, setTitle] = useState('Add title to your note');
 
-    function createNote() {
-        let windowWidth = window.innerWidth;
-        document.getElementById("create").style.height = `${windowWidth}px`;
-
-        return (
-            $(this).before("<textarea></textarea>")
-        );
-    };
-
     return <div id='sticky-note-style'>
             
         <textarea
