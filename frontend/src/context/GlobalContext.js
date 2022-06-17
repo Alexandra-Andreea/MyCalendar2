@@ -6,7 +6,11 @@ const GlobalContext = React.createContext ({
     showCreatEventModal: false,
     setShowCreateEventModal: () => {},
     daySelected: null,
-    setDaySelected: (day) => {}
+    setDaySelected: (day) => {},
+    showCreateTaskModal: false,
+    setShowCreateTaskModal: () => {},
+    showEditTaskModal: false,
+    setShowEditTaskModal: () => {}
 });
 
 export default GlobalContext;

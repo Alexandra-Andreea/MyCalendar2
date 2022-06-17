@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import './CalendarStyle.scss'
 import '@fortawesome/fontawesome-free/js/all.js';
-import GlobalContext from './context/GlobalContext';
+import GlobalContext from '../../context/GlobalContext';
 import dayjs from 'dayjs';
 
 export default function CalendarHeader () {

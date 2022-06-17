@@ -5,7 +5,7 @@ import { getMonth } from "./Utils";
 import CalendarHeader from './CalendarHeader';
 import Sidebar from './Sidebar';
 import Month from './Month';
-import GlobalContext from "./context/GlobalContext";
+import GlobalContext from "../../context/GlobalContext";
 import CreatEventModal from "./CreateEventModal";
 
 const Calendar = () => {

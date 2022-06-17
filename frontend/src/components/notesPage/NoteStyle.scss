@@ -63,4 +63,9 @@
         box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
         outline: none;
     }
+
+    .title-style {
+        z-index: 2;
+        border: solid 3px black;
+    }
 }
