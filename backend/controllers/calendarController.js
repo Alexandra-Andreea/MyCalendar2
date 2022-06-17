@@ -19,7 +19,7 @@ const addEvent = asyncHandler(async (req, res) => {
 
         if (!nameEvent) {
             res.status(400);
-            throw new Error("Invalid note");
+            throw new Error("Invalid event");
         }
 
         const newEvent = {
@@ -60,7 +60,7 @@ const deleteEvent = asyncHandler(async (req, res) => {
 
         if (!nameEvent) {
             res.status(400);
-            throw new Error("Invalid note");
+            throw new Error("Invalid event");
         }
 
         const user = await User.updateOne(
@@ -91,7 +91,7 @@ const editEvent = asyncHandler(async (req, res) => {
 
         if (!nameEvent) {
             res.status(400);
-            throw new Error("Invalid note");
+            throw new Error("Invalid event");
         }
 
         const user = await User.updateOne(
