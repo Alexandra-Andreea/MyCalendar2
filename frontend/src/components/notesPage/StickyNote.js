@@ -1,30 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './NoteStyle.scss';
-import $ from 'jquery'
+import $ from 'jquery';
+import axios from 'axios';
+import NoteItem from './NoteItem';
+import GlobalContext from '../../context/GlobalContext';
+import CreateNoteModal from './CreateNote';
 
 const StickyNote = () => {
+    const [notes, setNotes] = useState();
+    const [descriptionStickyNote, setDescriptionStickyNote] = useState();
+    const {showCreateNote, setShowCreateNote} = useContext(GlobalContext);
+    
 
-    const [note, setNote] = useState('This is a sticky note you can type and edit.');
-    const [title, setTitle] = useState('Add title to your note');
+    const fetchNotes = async () => {
+        const user = localStorage.getItem("userInfo");
+        const userId = JSON.parse(user)._id
+        const token = JSON.parse(user).token;
 
-    return <div id='sticky-note-style'>
-            
-        <textarea
-            name='note'
-            value={note}
-            onChange={(e) => setNote(e.target.value)} >
+        try {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
 
-            <input
-                className='title-style'
-                name='title'
-                value={title}
-                onChange={(e) => setTitle(e.target.value)} >
-            </input>
+            const {data} = await axios.get
+            (
+                `/api/user/note/${userId}`,
+                config
+            );
 
-        </textarea>
+            setNotes(data.notes);
 
-        <div id="create" onClick={() => $('#create').before("<textarea></textarea>")}>+</div>
-    </div >
+            renderNotes();
+
+        } catch (error) {
+            alert('Error occured!');
+        };
+    };
+
+    const renderNotes = () => {
+        console.log(notes);
+
+        if (notes) {
+            return notes.map((note, i) => {
+                return <NoteItem key={i} note={note}/>
+            })
+        }
+    };
+
+    useEffect (() => {
+        fetchNotes();
+    }, []);
+
+    return (
+        <div id='sticky-note-style'>
+            {renderNotes()}
+
+            <div
+                id="create"
+                onClick={() => setShowCreateNote(true)}>
+                    +
+            </div> 
+
+            <React.Fragment>
+                {showCreateNote && <CreateNoteModal />}
+            </React.Fragment>
+        </div>
+    )
 };
 
 export default StickyNote;

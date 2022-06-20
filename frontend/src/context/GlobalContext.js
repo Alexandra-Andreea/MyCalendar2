@@ -10,7 +10,9 @@ const GlobalContext = React.createContext ({
     showCreateTaskModal: false,
     setShowCreateTaskModal: () => {},
     showEditTaskModal: false,
-    setShowEditTaskModal: () => {}
+    setShowEditTaskModal: () => {},
+    showCreateNote: false,
+    setShowCreateNote: () => {}
 });
 
 export default GlobalContext;

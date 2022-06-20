@@ -29,7 +29,7 @@ router.route('/checkTask').put(protect, checkTask);
 router.route('/note/:userId').get(protect, fetchNotes);
 router.route('/addNote').put(protect, addNote);
 router.route('/deleteNote').put(protect, deleteNote);
-// router.route('/editNote').put(protect, editNote);
+router.route('/editNote').put(protect, editNote);
 
 // calendar
 router.route('/calendar/:userId').get(protect, fetchEvents);

@@ -82,6 +82,7 @@ const deleteNote = asyncHandler(async (req, res) => {
 const editNote = asyncHandler(async (req, res) => {
     try {
         const userId = req.body._id;
+        const oldDescriptionStickyNote = req.body.oldDescriptionStickyNote;
         const descriptionStickyNote = req.body.descriptionStickyNote;
 
         if (!descriptionStickyNote) {
@@ -92,7 +93,7 @@ const editNote = asyncHandler(async (req, res) => {
         const user = await User.updateOne(
             {
                 _id: userId,
-                notes: { $elemMatch : {notes: descriptionStickyNote } }
+                notes: { $elemMatch : {descriptionStickyNote: oldDescriptionStickyNote } }
             },
             {
                 $set: { "notes.$.descriptionStickyNote": descriptionStickyNote }
