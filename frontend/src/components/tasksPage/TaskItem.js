@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 
 function TaskItem ({task}) {
     const [completeTask, setCompleteTask] = useState(task.completeTask);
-    // const {setShowEditTaskModal} = useContext(GlobalContext);
+    const { setShowCreateTaskModal } = useContext(GlobalContext);
 
     if (!task.startDateTask) {
         task.startDateTask = dayjs(new Date()).format('DD-MM-YYYY');
@@ -45,15 +45,13 @@ function TaskItem ({task}) {
     };
 
     async function checkComplete () {
-        //setCompleteTask(completeTask => !completeTask)
-
         const user = localStorage.getItem("userInfo");
         const _id = JSON.parse(user)._id
         const token = JSON.parse(user).token;
         const nameTask = task.nameTask;
-        
+        const check = task.completeTask;
+        setCompleteTask(!check);
 
-        console.log('frontend', completeTask);
 
         try {
             const config = {
@@ -68,10 +66,6 @@ function TaskItem ({task}) {
                 config
             );
 
-            console.log(completeTask, data);
-
-            setCompleteTask(completeTask => !completeTask)
-
         } catch (error) {
             alert('Error occured!');
         };
@@ -81,7 +75,7 @@ function TaskItem ({task}) {
         <div
             className='task-item border border-light'
             style={{
-                backgroundColor: completeTask ? 'grey' : '#6afa66'
+                backgroundColor: completeTask === true ? 'grey' : '#6afa66'
             }}>
             <span>
                 <button className='close-button btn' onClick={checkComplete}>
@@ -110,10 +104,6 @@ function TaskItem ({task}) {
             </span>
 
             <span>
-                <button className='edit-delete-button btn' /*onClick={setShowEditTaskModal(true)}*/>
-                    <span className='far fa-solid fa-pen-to-square'></span>
-                </button>
-
                 <button className='edit-delete-button btn' onClick={deleteTask}>
                     <span className='far fa-solid fa-trash-can'></span>
                 </button>

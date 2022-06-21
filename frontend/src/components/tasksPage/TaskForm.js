@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, setState} from 'react';
 import axios from 'axios';
 import TaskItem from './TaskItem';
 import './TaskStyle.scss';
@@ -6,6 +6,7 @@ import TaskHeader from './TaskHeader';
 
 export function TaskForm() {
     const [tasks, setTasks] = useState();
+    const [ dislayTask, setDisplayTask ] = useState(0)
 
     const fetchTasks = async () => {
         const user = localStorage.getItem("userInfo");
@@ -35,11 +36,14 @@ export function TaskForm() {
     };
 
     const renderTasks = () => {
-        console.log(tasks);
-
         if (tasks) {
             return tasks.map((task, i) => {
-                return <TaskItem key={i} task={task}/>
+                if (dislayTask === 0)
+                    return <TaskItem key={i} task={task}/>
+                else if (dislayTask === 1 && task.completeTask === false)
+                    return <TaskItem key={i} task={task}/>
+                else if (dislayTask === 2 && task.completeTask === true)
+                    return <TaskItem key={i} task={task}/>
             })
         }
     };
@@ -51,7 +55,7 @@ export function TaskForm() {
     return (
         <>
             <div className='form-style'>
-                <TaskHeader/>
+                <TaskHeader setDisplayTask={setDisplayTask}/>
                 <div className='list-items'>
                     {renderTasks()}
                 </div>

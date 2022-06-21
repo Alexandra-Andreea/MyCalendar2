@@ -144,3 +144,24 @@
         }
     }
 }
+
+.btn-display {
+    font-size: 21px;
+    padding: 5px 20px;
+    margin-top: 10px;
+    border: 0;
+    background-color: #c65ad6;
+    color: #fff;
+    border-radius: 3px;
+    transition: all 250ms ease-in-out;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #ac2abf;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

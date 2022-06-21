@@ -57,7 +57,7 @@ const checkTask = asyncHandler(async (req, res) => {
         const userId = req.body._id;
         const { nameTask, completeTask } = req.body;
 
-        console.log('controller', completeTask);
+        console.log(completeTask);
 
         if (!nameTask) {
             res.status(400);
@@ -87,8 +87,6 @@ const checkTask = asyncHandler(async (req, res) => {
         throw new Error(error.message);
     }
 });
-
-// db.collection('users').updateOne({user: "some userID"}, {$pull: { hobbies: {title: "Gaming"} }})
 
 const deleteTask = asyncHandler(async (req, res) => {
     try {
