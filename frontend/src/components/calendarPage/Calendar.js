@@ -3,7 +3,6 @@ import Navbar from '../utils/Navbar';
 import Footer from "../utils/Footer";
 import { getMonth } from "./Utils";
 import CalendarHeader from './CalendarHeader';
-import Sidebar from './Sidebar';
 import Month from './Month';
 import GlobalContext from "../../context/GlobalContext";
 import CreatEventModal from "./CreateEventModal";
@@ -24,7 +23,6 @@ const Calendar = () => {
             <div className="d-flex flex-column">
                 <CalendarHeader />
                 <div className="d-flex flex-shrink-1">
-                    <Sidebar />
                     <Month month={curretMonth}/>
                 </div>
             </div>

@@ -27,8 +27,8 @@ const addEvent = asyncHandler(async (req, res) => {
             descriptionEvent: descriptionEvent,
             startDateEvent: startDateEvent,
             endDateEvent: endDateEvent,
-            startHourEvent: startHourEvent,
-            endHourEvent: endHourEvent
+            startHourEvent: Date(startHourEvent),
+            endHourEvent: Date(endHourEvent)
         }
 
         const user = await User.findByIdAndUpdate(

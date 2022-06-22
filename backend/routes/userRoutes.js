@@ -12,7 +12,6 @@ const router = express.Router();
 router.post('/login', authUser);
 
 // register
-//router.route('/register').get(protect);
 router.route('/register').post(protect, registerUser);
 
 // profile settings

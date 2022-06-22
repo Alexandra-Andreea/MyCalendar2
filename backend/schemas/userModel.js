@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
     darkTheme: { type: Boolean },
     feedback: { type: Number, required: true, default: 0 },
     events: [{
-        nameEvent: { type: String, required: true },
+        nameEvent: { type: String, required: true, unique: true },
         descriptionEvent: { type: String },
         startDateEvent: { type: Date, default: Date.now },
         endDateEvent: { type: Date, default: Date.now },
