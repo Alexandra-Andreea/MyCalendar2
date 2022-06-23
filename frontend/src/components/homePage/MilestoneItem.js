@@ -58,7 +58,7 @@ function MilestoneItem ({milestone}) {
     };
 
     return (
-        <div className='milestone-item border rounded border-light'>
+        <div className='milestone-item border'>
             <span>
                 <button className='close-button btn' onClick={checkComplete}>
                     <span className='far fa-solid fa-circle-check'></span>
@@ -66,7 +66,7 @@ function MilestoneItem ({milestone}) {
             </span>
             <span>
                 <input
-                    className='input-style'
+                    className='input-style milestone-input'
                     type='text'
                     value={nameMilestone}
                     onChange={(e) => setNameMilestone(e.target.value)}
@@ -75,7 +75,7 @@ function MilestoneItem ({milestone}) {
             </span>
             <span>
                  <input
-                    className='input-style'
+                    className='input-style milestone-input'
                     type='text'
                     value={descriptionMilestone}
                     onChange={(e) => setDescriptionMilestone(e.target.value)}

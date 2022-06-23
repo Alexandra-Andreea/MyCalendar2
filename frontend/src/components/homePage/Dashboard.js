@@ -111,6 +111,7 @@ const Dashboard = () => {
                 <TaskChart/>
             </div>
 
+            <span className='events-tasks'>
             <div className='display-events rounded'>
                 <h3>Your today events</h3>
                 {renderEvents()}
@@ -120,6 +121,7 @@ const Dashboard = () => {
                 <h3>Your tasks that need to be finished</h3>
                 {renderTasks()}
             </div>
+            </span>
 
             <div className='display-notes rounded'>
                 <h3>Your most recent notes</h3>

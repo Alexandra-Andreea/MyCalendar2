@@ -119,4 +119,39 @@ const deleteTask = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { fetchTasks, addTask, deleteTask, checkTask };
+const editTask = asyncHandler(async (req, res) => {
+    try {
+        const userId = req.body._id;
+        const oldDescriptionTask = req.body.oldDescriptionTask;
+        const descriptionTask = req.body.descriptionTask;
+
+        if (!descriptionTask) {
+            res.status(400);
+            throw new Error("Invalid note");
+        }
+
+        const user = await User.updateOne(
+            {
+                _id: userId,
+                tasks: { $elemMatch : {descriptionTask: oldDescriptionTask } }
+            },
+            {
+                $set: { "tasks.$.descriptionTask": descriptionTask }
+            }
+        );
+
+        console.log(user);
+
+        if (!user) {
+            res.status(404);
+            throw new Error("User not found");
+        } else {
+            res.json(user);
+        }
+    } catch (error) {
+        res.status(400);
+        throw new Error(error.message);
+    }
+});
+
+module.exports = { fetchTasks, addTask, deleteTask, checkTask, editTask };

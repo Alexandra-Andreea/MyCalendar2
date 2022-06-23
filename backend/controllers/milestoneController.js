@@ -116,4 +116,39 @@ const checkMilestone = asyncHandler(async (req, res) => {
     }
 });
 
-module.exports = { fetchMilestones, addMilestone, deleteMilestone, checkMilestone };
+const editMilestone = asyncHandler(async (req, res) => {
+    try {
+        const userId = req.body._id;
+        const oldNameMilestone = req.body.oldNameMilestone;
+        const nameMilestone = req.body.nameMilestone;
+
+        if (!nameMilestone) {
+            res.status(400);
+            throw new Error("Invalid note");
+        }
+
+        const user = await User.updateOne(
+            {
+                _id: userId,
+                milestones: { $elemMatch : {nameMilestone: oldNameMilestone } }
+            },
+            {
+                $set: { "milestones.$.descriptionTask": descriptionTask }
+            }
+        );
+
+        console.log(user);
+
+        if (!user) {
+            res.status(404);
+            throw new Error("User not found");
+        } else {
+            res.json(user);
+        }
+    } catch (error) {
+        res.status(400);
+        throw new Error(error.message);
+    }
+});
+
+module.exports = { fetchMilestones, addMilestone, deleteMilestone, checkMilestone, editMilestone };

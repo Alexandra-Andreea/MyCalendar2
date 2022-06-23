@@ -58,7 +58,7 @@ function NoteItem ({note}) {
 
     return (
         <div id='note-item'>
-             <textarea
+            <textarea
                 name='note'
                 value={descriptionStickyNote}
                 onChange={(e) => setDescriptionStickyNote(e.target.value)} >

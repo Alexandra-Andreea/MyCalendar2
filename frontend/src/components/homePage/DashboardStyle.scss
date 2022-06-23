@@ -73,71 +73,101 @@
                     width: 80%;
                     margin-left: 8%;
                     height: 20%;
+                    width: 90%;
+                    padding: 1rem;
+                    margin: .8rem 0;
+                    border-radius: 30px;
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+                    display: flex;
+                    justify-content: space-between;
+                    color: black;
+
+                    .milestone-input {
+                        padding: 0.2rem;
+                        margin: .2rem 0;
+                        border-radius: 30px;
+                        border-color: transparent;
+                        background-color: transparent;
+                        text-align: center;
+                    }
                 }
             }
         }
     }
 
-    .display-events {
-        background-color: #b0edf7;
-        margin-left: 2%;
-        margin-right: 2%;
-        margin-top: 3%;
-        margin-bottom: 2%;
+    .events-tasks {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
 
-        .event-item {
+        .display-events {
+            background-color: #b0edf7;
             margin-left: 2%;
-            padding: 1rem;
-            margin: .8rem 0;
-            border-radius: 30px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-            justify-content: space-between;
-            color: black;
+            margin-right: 2%;
+            margin-top: 3%;
+            margin-bottom: 2%;
             width: 50%;
-            align-items: center;
-            margin-left: 25%;
+    
+            .event-item {
+                margin-left: 2%;
+                padding: 1rem;
+                margin: .8rem 0;
+                border-radius: 30px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+                justify-content: space-between;
+                color: black;
+                width: 50%;
+                align-items: center;
+                margin-left: 25%;
+            }
         }
-    }
 
-    .display-tasks {
-        background-color: #f7c8c8;
-        margin-left: 2%;
-        margin-right: 2%;
-        margin-top: 3%;
-        margin-bottom: 2%;
-
-        .task-item {
+        .display-tasks {
+            background-color: #f7c8c8;
             margin-left: 2%;
-            padding: 1rem;
-            margin: .8rem 0;
-            border-radius: 30px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-            justify-content: space-between;
-            color: black;
+            margin-right: 2%;
+            margin-top: 3%;
+            margin-bottom: 2%;
             width: 50%;
-            align-items: center;
-            margin-left: 25%;
+    
+            .task-item {
+                margin-left: 2%;
+                padding: 1rem;
+                margin: .8rem 0;
+                border-radius: 30px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+                justify-content: space-between;
+                color: black;
+                width: 50%;
+                align-items: center;
+                margin-left: 25%;
+            }
         }
     }
 
     .display-notes {
-        background-color: #e0f59a;
+        background-color: #c49bfa;
         margin-left: 2%;
         margin-right: 2%;
         margin-top: 3%;
         margin-bottom: 2%;
 
-        .note-item {
-            margin-left: 2%;
-            padding: 1rem;
-            margin: .8rem 0;
-            border-radius: 30px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
-            justify-content: space-between;
-            color: black;
-            width: 50%;
-            align-items: center;
-            margin-left: 25%;
+        textarea {
+            font: 20px 'Gloria Hallelujah', cursive;
+            line-height: 1.5;
+            border: 0;
+            border-radius: 3px;
+            border-color: transparent;
+            background: linear-gradient(#F9EFAF, #F7E98D);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.5s ease;
+            max-width: 520px;
+            max-height: 250px;
+            margin-right: 2%;
+            margin-top: 3%;
+            margin-bottom: 3%;
+            text-align: center;
         }
     }
 }

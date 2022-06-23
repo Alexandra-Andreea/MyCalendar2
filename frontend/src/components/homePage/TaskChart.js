@@ -4,8 +4,8 @@ import {PieChart, Pie, Cell, Tooltip, ResponsiveContainer} from 'recharts';
 
 const TaskChart = () => {
     const chartData = [
-        {name: 'In progress', value: 10},
-        {name: 'Completed', value: 5},
+        {name: 'In progress', value: 4},
+        {name: 'Completed', value: 3},
     ]
 
     const COLORS = ['#0088FE', '#00C49F'];
