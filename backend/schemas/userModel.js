@@ -22,7 +22,6 @@ const userSchema = mongoose.Schema({
     milestones: [{
         nameMilestone: { type: String, required: true },
         descriptionMilestone: { type: String },
-        dateMilestone: { type: Date, default: Date.now },
         completeMilestone: { type: Boolean, default: false }
     }],
     tasks: [{

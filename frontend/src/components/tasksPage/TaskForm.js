@@ -28,8 +28,6 @@ export function TaskForm() {
 
             setTasks(data.tasks);
 
-            renderTasks();
-
         } catch (error) {
             alert('Error occured!');
         };

@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <>
             <Navbar />
-            {/* <Dashboard /> */}
+            <Dashboard />
             <Footer />
         </>
     )

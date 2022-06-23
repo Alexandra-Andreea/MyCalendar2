@@ -5,7 +5,7 @@ import { fetchRegisterData, updateProfileData } from '../controllers/profileCont
 import { fetchTasks, addTask, deleteTask, checkTask } from '../controllers/taskControllers';
 import { fetchNotes, addNote, deleteNote, editNote } from '../controllers/noteController';
 import { fetchEvents, addEvent, deleteEvent, editEvent } from '../controllers/calendarController';
-import { fetchMilestones, addMilestone, deleteMilestone } from '../controllers/milestoneController'
+import { fetchMilestones, addMilestone, deleteMilestone, checkMilestone } from '../controllers/milestoneController'
 const router = express.Router();
 
 // login
@@ -36,9 +36,10 @@ router.route('/addEvent').put(protect, addEvent);
 router.route('/deleteEvent').put(protect, deleteEvent);
 // router.route('/editEvent').put(protect, editEvent);
 
-// milestone
-router.route('/milestone/:userId').get(protect, fetchMilestones);
+// dashboard/milestone
+router.route('/dashboard/:userId').get(protect, fetchMilestones);
 router.route('/addMilestone').put(protect, addMilestone);
 router.route('/deleteMilestone').put(protect, deleteMilestone);
+router.route('/checkMilestone').put(protect, checkMilestone);
 
 module.exports = router;

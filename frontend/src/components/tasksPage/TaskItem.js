@@ -1,12 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import axios from 'axios';
-import GlobalContext from '../../context/GlobalContext';
 import dayjs from 'dayjs';
 
 function TaskItem ({task}) {
     const [completeTask, setCompleteTask] = useState(task.completeTask);
-    const { setShowCreateTaskModal } = useContext(GlobalContext);
 
     if (!task.startDateTask) {
         task.startDateTask = dayjs(new Date()).format('DD-MM-YYYY');
@@ -109,8 +107,6 @@ function TaskItem ({task}) {
                 </button>
             </span>
         </div>
-        
-        
    );
 };
 
