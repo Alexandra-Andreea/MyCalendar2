@@ -25,12 +25,15 @@ const Navbar = () => {
                     <li className="nav-item">
                         <a className="nav-link" href="/notes"><i className="far fa-solid fa-note-sticky"></i>Notes</a>
                     </li>
-                    <li className="form-inline my-2 my-lg-0">
+                    {/* <li className="form-inline my-2 my-lg-0">
                         <input className="form-control" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success mt-3" type="submit">Search</button>
-                    </li>
-                    <li className="nav-item">
+                    </li> */}
+                    <li className="nav-item profile-item">
                         <a className="nav-link ml-5" href="/profile"><i className="far fa-solid fa-user"></i>Profile</a>
+                    </li>
+                    <li className="nav-item -item">
+                        <a className="nav-link ml-5" href="/profile"><i className="far fa-solid fa-right-from-bracket"></i>Logout</a>
                     </li>
                 </ul>
             </div>

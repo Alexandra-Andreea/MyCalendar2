@@ -6,6 +6,8 @@ function TaskItem ({task}) {
     const [descriptionTask] = useState(task.descriptionTask);
     const [endHourTask] = useState(task.endHourTask);
 
+    console.log(Date(endHourTask));
+
     return (
         <div className='task-item border border-light'>
             <span>
@@ -16,9 +18,9 @@ function TaskItem ({task}) {
                 {descriptionTask}
             </span>
 
-            <span>
+            {/* <span>
                 {endHourTask}
-            </span>
+            </span> */}
         </div>
     );
 };

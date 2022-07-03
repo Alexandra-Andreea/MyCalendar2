@@ -12,7 +12,8 @@ const router = express.Router();
 router.post('/login', authUser);
 
 // register
-router.route('/register').post(protect, registerUser);
+router.route('/register').get(protect);
+router.route('/register').post(registerUser);
 
 // profile settings
 router.route('/:userId').get(protect, fetchRegisterData);
@@ -24,6 +25,7 @@ router.route('/addTask').put(protect, addTask);
 router.route('/deleteTask').put(protect, deleteTask);
 router.route('/checkTask').put(protect, checkTask);
 router.route('/editTask').put(protect, editTask);
+// router.route('/updateFeedback').put(protect, updateFeedback);
 
 // note
 router.route('/note/:userId').get(protect, fetchNotes);

@@ -1,4 +1,5 @@
 // -------------------- USERS COLLECTION -------------------
+
 {
     "Users": [
         {
@@ -8,15 +9,18 @@
             "FirstName": "string",
             "LastName": "string",
             "Birthday": "date",
-            "DarkTheme": "boolean",
-            "Feedback": "number",
+            "CompletedTasks": "number",
+            "InProgressTasks": "number",
             "Milestones": [
                 {
                     "Name": "string",
                     "Description": "string",
-                    "Data": "date",
-                    "Location": "string",
                     "Completed": "boolean"
+                }
+            ],
+            "Notes": [
+                {
+                    "Description": "string"
                 }
             ],
             "Tasks": [
@@ -26,36 +30,22 @@
                     "StartDate": "date",
                     "EndDate": "date",
                     "Hour": "date",
-                    "Notification": "boolean",
-                    "Completed": "boolean",
-                    "Substasks": [
-                        {
-                            "Name": "string",
-                            "Description": "string",
-                            "StartDate": "date",
-                            "EndDate": "date",
-                            "Hour": "date",
-                            "Notification": "boolean",
-                            "Completed": "boolean"
-                        }
-                    ]
+                    "Completed": "boolean"
                 }
             ],
-            "Notes": [
+            "Events": [
                 {
                     "Name": "string",
-                    "Description": "string"
-                }
-            ],
-            "Calendars": [
-                {
-                    "IdCalendar": "number",
-                    "EditingRights": "boolean"
+                    "Description": "string",
+                    "StartDate": "date",
+                    "EndDate": "date",
+                    "StartHour": "date",
+                    "EndHour": "date"
                 }
             ]
         }
     ]
-};
+}
 
 // -------------------- CALENDARS COLLECTION -------------------
 {

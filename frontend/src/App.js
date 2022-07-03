@@ -11,15 +11,10 @@ function App() {
     return (
         <div className="App">
             <Route path='/' component={Main} exact />
-
             <Route path='/home' component={Home} />
-
             <Route path='/profile' component={Profile} />
-
             <Route path='/calendar' component={Calendar} />
-
             <Route path='/tasks' component={Tasks} />
-
             <Route path='/notes' component={Notes} />
         </div>
     );

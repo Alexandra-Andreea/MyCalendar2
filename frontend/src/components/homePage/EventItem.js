@@ -10,10 +10,10 @@ function EventItem ({event}) {
     return (
         <div className='event-item border border-light'>
             <span>
-                {nameEvent}
+                {nameEvent} 
             </span>
 
-            <span>
+            {/* <span>
                 {descriptionEvent}
             </span>
 
@@ -23,7 +23,7 @@ function EventItem ({event}) {
 
             <span>
                 {endHourEvent}
-            </span>
+            </span> */}
         </div>
     );
 };

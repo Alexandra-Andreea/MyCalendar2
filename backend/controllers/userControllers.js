@@ -24,6 +24,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
     const result = user.save(user);
 
+    console.log(result)
+
     if (result) {
         res.status(201).json({
             _id: user._id,

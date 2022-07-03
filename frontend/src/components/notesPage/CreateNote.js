@@ -61,7 +61,7 @@ function CreateNoteModal () {
                         className="btn btn-outline-success create-btn"
                         type="button"
                         onClick={createNote}>
-                        Create Task
+                        Create Note
                     </button>
                 </div>
             </form>
